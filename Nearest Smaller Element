@@ -4,7 +4,7 @@
  * 
  * @Output Integer array. You need to malloc memory, and fill the length in len1
  */
-int* prevSmaller(int* A, int n1, int *len1) {
+/*int* prevSmaller(int* A, int n1, int *len1) {
     int i, j;
     for( i=0;i<len1;i++)
     {
@@ -20,4 +20,26 @@ int* prevSmaller(int* A, int n1, int *len1) {
             }
         }
     }
+}*/
+
+int* prevSmaller(int* A, int n1, int *len1) {
+    stack<int>stk;
+    int i;
+    for(i=0;i<len1;i++)
+    {
+
+        while(!stk.empty() && stk.top()>= A[i])
+        {
+            stk.pop();
+        }
+        else if(stk.empty())
+        {
+            return -1;
+        }
+        else{
+            return stk.top();
+        }
+        stk.push(A[i]);
+    
 }
+
